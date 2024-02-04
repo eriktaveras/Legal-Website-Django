@@ -16,7 +16,7 @@ This is a Django-based web project developed by Erik Taveras. The project is des
 
 ## Project Overview
 
-[Client Name] is a law firm that offers legal advice and services in the areas of consumer law, credit consulting, and tax consulting. The goal of this project is to create a user-friendly website that showcases the firm's expertise and services to potential clients.
+is a law firm that offers legal advice and services in the areas of consumer law, credit consulting, and tax consulting. The goal of this project is to create a user-friendly website that showcases the firm's expertise and services to potential clients.
 
 ## Features
 
