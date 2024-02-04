@@ -15,35 +15,40 @@
 <body class="bg-white text-gray-800">
     <div class="max-w-screen-xl mx-auto px-4">
 
-         <!-- Header -->
-    <header class="text-center py-8 bg-white shadow">
+ <!-- Header -->
+<header class="py-4 bg-white shadow">
+    <div class="container mx-auto flex justify-center items-center">
         <a href="/">
-            <img src="{% static 'images/logo.png' %}" alt="logo" class="mx-auto h-20">
+            <img src="{% static 'images/logo.png' %}" alt="Company Logo" class="h-16 md:h-20" />
         </a>
-    </header>
+    </div>
+</header>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4">
-            <ul class="flex justify-center space-x-4 py-4 text-gray-800">
-                <li><a href="/" class="hover:text-blue-600 text-lg">HOME</a></li>
-                <li class="group relative">
-                    <a href="/services" class="hover:text-blue-600 text-lg">SERVICES</a>
-                    <!-- Dropdown Menu -->
-                    <ul class="absolute hidden group-hover:block bg-white mt-1 shadow-lg border rounded-md">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Credit Repair</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Tradelines</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Court Services</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Consumer Law</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Glossary</a></li>
-                    </ul>
-                </li>
-                <li><a href="/aboutus" class="hover:text-blue-600 text-lg">ABOUT US</a></li>
-                <li><a href="/blog" class="hover:text-blue-600 text-lg">BLOG</a></li>
-                <li><a href="/contact" class="hover:text-blue-600 text-lg">CONTACT</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+        <ul class="flex justify-between items-center py-4 text-gray-800">
+            <li>
+                <a href="/" class="hover:text-blue-600 text-lg">HOME</a>
+            </li>
+            <li class="relative group">
+                <a href="/services" class="hover:text-blue-600 text-lg">SERVICES</a>
+                
+            </li>
+            <li>
+                <a href="/aboutus" class="hover:text-blue-600 text-lg">ABOUT US</a>
+            </li>
+            <li>
+                <a href="/blog" class="hover:text-blue-600 text-lg">BLOG</a>
+            </li>
+            <li>
+                <a href="/contact" class="hover:text-blue-600 text-lg">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
 
         {% block content %}
         {% endblock content %}

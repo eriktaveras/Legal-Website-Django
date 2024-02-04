@@ -3,180 +3,162 @@
 {% load static %}
 
 <!-- Hero Section -->
-<section class="text-center py-20 bg-blue-100 relative ">
+<section class="text-center py-16 md:py-20 bg-blue-100 relative">
     <div class="container mx-auto px-4">
-        <h2 class="text-5xl font-bold text-gray-800 md:text-6xl">Your Trusted Legal Advisors</h2>
-        <p class="text-xl text-gray-600 mt-4 md:text-2xl">Specializing in Consumer Law, Credit & Tax Consulting, with Personalized Guidance</p>
-        <a href="#contact" class="mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Get Started</a>
-    </div>
-    <!-- Decorative Elements -->
-    <div class="absolute top-0 right-0 h-full w-48 md:w-72 bg-blue-100 transform translate-x-1/2"></div>
-    <div class="absolute bottom-0 left-0 h-full w-48 md:w-72 bg-blue-100 transform -translate-x-1/2"></div>
-</section>
-
-
-
-<!-- Main -->
-<section id="main" class="py-8 bg-gray-50">
-    <div class="container mx-auto px-4">
-       <!-- Section Title -->
-<div class="text-center mb-12">
-    <h2 class="text-3xl font-bold text-gray-800">Our Services</h2>
-    <p class="text-xl text-gray-600 mt-4">Providing top-notch services to help you navigate legal challenges.</p>
-</div>
-
-<!-- Services Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Iterar sobre los primeros 3 servicios -->
-    {% for service in featured_services %}
-    <div class="service-box bg-white rounded-lg shadow-lg overflow-hidden">
-        <img src="{{ service.img.url }}" alt="{{ service.title }}" class="w-full h-56 object-cover">
-        <div class="p-6">
-            <h3 class="font-semibold text-xl mb-3">{{ service.title }}</h3>
-            <p class="text-gray-600 mb-4">{{ service.description }}</p>
-            <a href="{% url 'service_detail' service.id %}">Find out more &rarr;</a>
+        <div class="md:flex md:flex-col md:items-center">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">Your Trusted Legal Advisors</h2>
+            <p class="text-lg md:text-xl text-gray-600 mt-4 md:mt-6">Specializing in Consumer Law, Credit & Tax Consulting, with Personalized Guidance</p>
+            <a href="#contact" class="mt-6 md:mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Get Started</a>
         </div>
     </div>
-    {% endfor %}
-</div>
 
+</section>
 
-<!-- Sección de Latest Blog Posts -->
-<div class="latest-blogs py-12 bg-gray-100">
+<!-- Main -->
+<section id="main" class="py-6 md:py-12 bg-gray-50">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Latest Blog Posts</h2>
-        <!-- Ajusta la cuadrícula para 2 columnas en pantallas medianas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {% for blog in latest_blogs %}
-            <div class="blog-post bg-white rounded-lg shadow overflow-hidden">
-                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-full h-56 object-cover">
-                <div class="p-6">
-                    <h3 class="font-semibold text-xl mb-3">{{ blog.title }}</h3>
-                    <p class="text-gray-600 mb-4">{{ blog.summary|safe }}</p>
-                    <a href="{% url 'detail' blog.id %}" class="text-blue-600 hover:text-blue-700 font-semibold">Continue Reading &rarr;</a>
+        <!-- Section Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Services</h2>
+            <p class="text-lg md:text-xl text-gray-600 mt-4">Providing top-notch services to help you navigate legal challenges.</p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {% for service in featured_services %}
+            <div class="service-box bg-white rounded-lg shadow-lg overflow-hidden">
+                <img src="{{ service.img.url }}" alt="{{ service.title }}" class="w-full h-44 md:h-56 object-cover">
+                <div class="p-4 md:p-6">
+                    <h3 class="font-semibold text-xl md:text-2xl mb-3">{{ service.title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ service.description | safe }}</p>
+                    <a href="{% url 'service_detail' service.id %}" class="text-blue-600 hover:text-blue-700 font-semibold">Find out more &rarr;</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-    </div>
-</div>
 
-
+        <!-- Sección de Latest Blog Posts -->
+        <div class="latest-blogs py-8 md:py-12 bg-gray-100">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">Latest Blog Posts</h2>
+            <!-- Ajusta la cuadrícula para 1 columna en pantallas pequeñas y 2 en medianas y grandes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                {% for blog in latest_blogs %}
+                <div class="blog-post bg-white rounded-lg shadow overflow-hidden">
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-full h-44 md:h-56 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="font-semibold text-xl md:text-2xl mb-3">{{ blog.title }}</h3>
+                        <p class="text-gray-600 mb-4">{{ blog.summary | safe }}</p>
+                        <a href="{% url 'detail' blog.id %}" class="text-blue-600 hover:text-blue-700 font-semibold">Continue Reading &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Testimonials Section -->
-<div class="py-12 bg-blue-100">
+<div class="py-6 md:py-12 bg-blue-100">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">What Our Clients Say</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6 md:mb-8">What Our Clients Say</h2>
         <div class="flex flex-wrap justify-center text-center">
-            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <blockquote class="text-xl italic text-gray-600">"Este bufete de abogados transformó completamente nuestro caso con su enfoque y experiencia. ¡No podríamos estar más agradecidos!"</blockquote>
-                <p class="text-gray-800 font-semibold mt-4">- Juan Pérez</p>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6 md:mb-8">
+                <blockquote class="text-lg md:text-xl italic text-gray-600">"Este bufete de abogados transformó completamente nuestro caso con su enfoque y experiencia. ¡No podríamos estar más agradecidos!"</blockquote>
+                <p class="text-gray-800 font-semibold mt-2 md:mt-4">- Juan Pérez</p>
             </div>
-            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-                <blockquote class="text-xl italic text-gray-600">"Gracias al equipo por su duro trabajo y dedicación. ¡Realmente hicieron la diferencia!"</blockquote>
-                <p class="text-gray-800 font-semibold mt-4">- María López</p>
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6 md:mb-8">
+                <blockquote class="text-lg md:text-xl italic text-gray-600">"Gracias al equipo por su duro trabajo y dedicación. ¡Realmente hicieron la diferencia!"</blockquote>
+                <p class="text-gray-800 font-semibold mt-2 md:mt-4">- María López</p>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Team Section -->
-<div class="py-12 bg-white">
+<div class="py-6 md:py-12 bg-white">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Our Team</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6 md:mb-8">Our Team</h2>
         <div class="flex flex-wrap justify-center">
             <!-- Team Member 1 -->
             <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 text-center">
-                <img src="{% static 'images/abogado1.jpg' %}" alt="John Doe" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-                <h3 class="text-xl font-semibold">John Doe</h3>
+                <img src="{% static 'images/abogado1.jpg' %}" alt="John Doe" class="mx-auto rounded-full w-24 h-24 md:w-32 md:h-32 object-cover mb-2 md:mb-4">
+                <h3 class="text-lg md:text-xl font-semibold">John Doe</h3>
                 <p class="text-gray-600">Senior Partner</p>
             </div>
             <!-- Team Member 2 -->
             <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 text-center">
-                <img src="{% static 'images/abogado2.jpg' %}" alt="Jane Smith" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-                <h3 class="text-xl font-semibold">Jane Smith</h3>
+                <img src="{% static 'images/abogado2.jpg' %}" alt="Jane Smith" class="mx-auto rounded-full w-24 h-24 md:w-32 md:h-32 object-cover mb-2 md:mb-4">
+                <h3 class="text-lg md:text-xl font-semibold">Jane Smith</h3>
                 <p class="text-gray-600">Family Law Specialist</p>
             </div>
             <!-- Team Member 3 -->
             <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 text-center">
-                <img src="{% static 'images/abogado3.jpg' %}" alt="Michael Johnson" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-                <h3 class="text-xl font-semibold">Michael Johnson</h3>
+                <img src="{% static 'images/abogado3.jpg' %}" alt="Michael Johnson" class="mx-auto rounded-full w-24 h-24 md:w-32 md:h-32 object-cover mb-2 md:mb-4">
+                <h3 class="text-lg md:text-xl font-semibold">Michael Johnson</h3>
                 <p class="text-gray-600">Criminal Defense Attorney</p>
             </div>
         </div>
     </div>
 </div>
 
-
-
-<!-- Container for demo purpose -->
-<div class="container my-24 mx-auto md:px-6">
-    <!-- Section: Design Block -->
-    <section class="mb-32">
-      <div class="flex flex-wrap">
-        <div class="mb-10 w-full md:w-6/12 md:px-6 lg:px-8">
-            <h2 class="mb-6 text-4xl font-bold text-gray-800 dark:text-white">Get in Touch</h2>
-            <p class="mb-6 text-lg text-gray-600 dark:text-gray-400">
-                Whether you’re facing a specific legal issue or have questions that only an attorney can properly answer, our team is here to help. Contact us today and start your journey towards peace of mind.
-            </p>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Office Location</h3>
-                    <p class="text-gray-600 dark:text-gray-400">New York, 94126, United States</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Phone</h3>
-                    <p class="text-gray-600 dark:text-gray-400">+01 234 567 89</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Email</h3>
-                    <p class="text-gray-600 dark:text-gray-400">info@example.com</p>
+<!-- Contact Form Section -->
+<section class="py-6 md:py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6 md:mb-8">Get in Touch</h2>
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 p-4">
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+                    Whether you’re facing a specific legal issue or have questions that only an attorney can properly answer, our team is here to help. Contact us today and start your journey towards peace of mind.
+                </p>
+                <div class="mt-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Office Location</h3>
+                        <p class="text-gray-600 dark:text-gray-400">New York, 94126, United States</p>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Phone</h3>
+                        <p class="text-gray-600 dark:text-gray-400">+01 234 567 89</p>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Email</h3>
+                        <p class="text-gray-600 dark:text-gray-400">info@example.com</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 md:px-3 lg:px-6">
-            <form class="space-y-6">
-                <!-- Name Input -->
-                <div class="relative">
-                  <input type="text" id="name" name="name" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder=" ">
-                  <label for="name" class="absolute left-4 -top-2.5 text-sm text-gray-600 bg-white px-1">Name</label>
-                </div>
-              
-                <!-- Email Input -->
-                <div class="relative">
-                  <input type="email" id="email" name="email" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder=" ">
-                  <label for="email" class="absolute left-4 -top-2.5 text-sm text-gray-600 bg-white px-1">Email address</label>
-                </div>
-              
-                <!-- Message Textarea -->
-                <div class="relative">
-                  <textarea id="message" name="message" rows="4" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder=" "></textarea>
-                  <label for="message" class="absolute left-4 -top-2.5 text-sm text-gray-600 bg-white px-1">Your message</label>
-                </div>
-              
-                <!-- Copy Checkbox -->
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="copy" name="copy" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                  </div>
-                  <div class="ml-3 text-sm">
-                    <label for="copy" class="font-medium text-gray-700">Send me a copy of this message</label>
-                  </div>
-                </div>
-              
-                <!-- Submit Button -->
-                <button type="submit" class="inline-flex w-full justify-center rounded-md bg-indigo-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                  Send
-                </button>
-              </form>
-              
-        </div>
-      </div>
-    </section>
-    <!-- Section: Design Block -->
-  </div>
-  <!-- Container for demo purpose -->
+            <div class="w-full md:w-1/2 p-4">
+                <form class="space-y-6">
+                    <!-- Name Input -->
+                    <div class="relative">
+                        <input type="text" id="name" name="name" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Name">
+                    </div>
 
+                    <!-- Email Input -->
+                    <div class="relative">
+                        <input type="email" id="email" name="email" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Email address">
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="relative">
+                        <textarea id="message" name="message" rows="4" required class="block w-full rounded-md border-gray-300 px-4 py-3 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Your message"></textarea>
+                    </div>
+
+                    <!-- Copy Checkbox -->
+                    <div class="flex items-start">
+                        <div class="flex h-5 items-center">
+                            <input id="copy" name="copy" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="copy" class="font-medium text-gray-700">Send me a copy of this message</label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="inline-flex w-full justify-center rounded-md bg-indigo-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
