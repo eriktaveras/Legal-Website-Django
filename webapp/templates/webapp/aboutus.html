@@ -1,65 +1,33 @@
-{% extends "webapp/base.html" %}    
+{% extends "webapp/base.html" %}
 {% block content %}
+{% load static %}
 
-
-
-
- <!-- Main -->
-
- <section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-4 col-12-medium">
-
-                 <!-- Sidebar -->
-                 <section class="box">
-                    {% load static %}
-                    <a href="#" class="image featured"><img src="{% static 'images/pic09.jpg' %}" alt="" /></a>
-                    <header>
-                        <h3>Sed etiam lorem nulla</h3>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-                    <footer>
-                        <a href="#" class="button alt">Magna sed taciti</a>
-                    </footer>
-                </section>
-                <section class="box">
-                    {% load static %}
-                    <a href="#" class="image featured"><img src="{% static 'images/pic09.jpg' %}" alt="" /></a>
-                    <header>
-                        <h3>Sed etiam lorem nulla</h3>
-                    </header>
-                    <p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-                    <footer>
-                        <a href="#" class="button alt">Magna sed taciti</a>
-                    </footer>
-                </section>
-
+<!-- Hero Section -->
+<section class="bg-blue-900 py-16 text-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4">About Smart Legal Group</h1>
+            <p class="text-lg font-light">Your Trusted Partners in Legal Excellence</p>
+            <p class="text-lg font-light">Serving Clients with Dedication and Integrity</p>
         </div>
-        <div class="col-8 col-12-medium imp-medium">
+    </div>
+</section>
 
-                <!-- Content -->
-                    <article class="box post">
-                        {% for aboutus in aboutus %}
-                        
-                        <header>
-                            <h2>{{ aboutus.title }}</h2>
-                            <br>
-                            
-                                <a href="#" class="col-6" ><img src="{{ aboutus.img.url }}" alt="" width="200" /></a>
-                           
-                        </header>
-                        <p>
-                            
-                            {{ aboutus.content | safe }}
-                        </p>
-                                            
-                        {% endfor %}
-                       
-                    </article>
 
+<!-- Main Section -->
+<section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        {% for item in aboutus %}
+        <div class="flex flex-wrap justify-center text-left mb-140">
+            <div class="w-full lg:w-6/12 px-4">
+                <h2 class="text-3xl font-semibold">{{ item.title | safe }}</h2>
+                <p class="text-lg leading-relaxed m-4 text-gray-600">{{ item.content | safe }}</p>
             </div>
         </div>
+        <div class="flex justify-center">
+            <img src="{{ item.img.url }}" alt="{{ item.title }}" class="max-w-full rounded-lg shadow-lg" />
+        </div>
+        {% endfor %}
     </div>
 </section>
 

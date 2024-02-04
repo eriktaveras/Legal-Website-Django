@@ -1,24 +1,26 @@
-{% extends "webapp/base.html" %}    
+{% extends "webapp/base.html" %}
+
 {% block content %}
-<!-- Main -->
-<section id="main">
-  <div class="container">
-
-    <!-- Content -->
-      <article class="box post">
-        <a href="#" class="image featured"><img src="{{ blog.image.url }}" alt=""/></a>
-        <header>
-          <h2>{{ blog.title }}</h2>
-          <p>{{ blog.pub_date }} </p>
-        </header>
-        <p>
-          {{ blog.body }}
-        </p>
-      
-      </article>
-
-  </div>
+<!-- Main Content Section -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto max-w-4xl px-4">
+        <!-- Content -->
+        <article class="post bg-white shadow rounded-lg overflow-hidden">
+            <!-- Featured Image -->
+            <div class="image featured">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-full h-56 object-cover"/>
+            </div>
+            <!-- Post Content -->
+            <div class="p-8">
+                <header>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ blog.title }}</h2>
+                    <p class="text-gray-500 mb-4">{{ blog.pub_date|date:"F d, Y" }}</p>
+                </header>
+                <div class="text-gray-700 text-lg space-y-4">
+                    {{ blog.body|safe }}
+                </div>
+            </div>
+        </article>
+    </div>
 </section>
-
-
 {% endblock content %}

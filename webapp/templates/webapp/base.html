@@ -1,137 +1,91 @@
 {% load static %}
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title> / SMARTLEGAL GROUP / </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTLEGAL GROUP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <div class="max-w-screen-xl mx-auto px-4">
 
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+         <!-- Header -->
+    <header class="text-center py-8 bg-white shadow">
+        <a href="/">
+            <img src="{% static 'images/logo.png' %}" alt="logo" class="mx-auto h-20">
+        </a>
+    </header>
 
-			<!-- Header -->
-				<section id="header">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <ul class="flex justify-center space-x-4 py-4 text-gray-800">
+                <li><a href="/" class="hover:text-blue-600 text-lg">HOME</a></li>
+                <li class="group relative">
+                    <a href="/services" class="hover:text-blue-600 text-lg">SERVICES</a>
+                    <!-- Dropdown Menu -->
+                    <ul class="absolute hidden group-hover:block bg-white mt-1 shadow-lg border rounded-md">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Credit Repair</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Tradelines</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Court Services</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Consumer Law</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-sm">Glossary</a></li>
+                    </ul>
+                </li>
+                <li><a href="/aboutus" class="hover:text-blue-600 text-lg">ABOUT US</a></li>
+                <li><a href="/blog" class="hover:text-blue-600 text-lg">BLOG</a></li>
+                <li><a href="/contact" class="hover:text-blue-600 text-lg">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
 
-					<!-- Logo -->
-					
-						<center><a href="/">	<img src="{% static 'images/logo.png'%}" class="img-responsive"> </a></center>
-						
-					
+        {% block content %}
+        {% endblock content %}
 
+        <footer class="bg-white text-gray-800 w-full">
+            <div class="max-w-full px-4 py-10 mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">SmartLegalGroup</h3>
+                        <p class="mb-4">Leading the way in legal excellence. Our team is dedicated to providing top-notch legal services to our clients.</p>
+                        <p>&copy; {{ now.year }} SmartLegalGroup.inc All rights reserved.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/aboutus" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">About Us</a></li>
+                            <li><a href="/services" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">Our Services</a></li>
+                            <li><a href="/contact" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">Contact</h3>
+                        <p class="text-gray-600">123 Justice Road, Suite 456, New York, NY 10001</p>
+                        <p class="text-gray-600">+1 (555) 123-4567</p>
+                        <p class="text-gray-600">contact@smartlegalgroup.com</p>
+                        <div class="flex justify-center md:justify-start mt-4">
+                            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 mr-4">LinkedIn</a>
+                            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="/">Home</a></li>
-								<li>
-									<a href="/services">SERVICES</a>
-									<ul>
-										<li><a href="#">credit repair</a></li>
-										<li><a href="#">Tradelines</a></li>
-										<li><a href="#">Court Services</a></li>
-										<li><a href="#">Consumer Law</a></li>
-										<li><a href="#">Glossary</a></li>
-
-									</ul>
-								</li>
-								<li><a href="/aboutus">ABOUT US</a></li>
-								<li><a href="/blog">BLOG</a></li>
-								<li><a href="/contacto">CONTACT</a></li>
-							</ul>
-						</nav>
-				</section>
-				
-                        
-                        {% block content %}
-						{% endblock content %}
-						
-										<!-- Footer -->
-										<section id="footer">
-											<div class="container">
-												<div class="row">
-													
-													<div class="col-4 col-12-medium">
-														<section>
-															<header>
-																<h2>What's this all about?</h2>
-															</header>
-															<a href="#" class="image featured"><img src="{% static 'images/pic10.jpg' %}" alt="" /></a>
-															<p>
-																This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
-																<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
-																the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
-															</p>
-															<footer>
-																<ul class="actions">
-																	<li><a href="#" class="button">Find out more</a></li>
-																</ul>
-															</footer>
-														</section>
-													</div>
-														<div class="col-4 col-6-medium col-12-small">
-													   
-													</div>
-													<div class="col-4 col-12-medium">
-														<section>
-															<header>
-																<h2>Social Media</h2>
-															</header>
-															<ul class="social">
-																<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-																<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-																<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-																<li><a class="icon brands fa-tumblr" href="#"><span class="label">Tumblr</span></a></li>
-																<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-															</ul>
-															<ul class="contact">
-																<li>
-																	<h3>Address</h3>
-																	<p>
-																		Untitled Incorporated<br />
-																		1234 Somewhere Road Suite<br />
-																		Nashville, TN 00000-0000
-																	</p>
-																</li>
-																<li>
-																	<h3>Mail</h3>
-																	<p><a href="#">someone@untitled.tld</a></p>
-																</li>
-																<li>
-																	<h3>Phone</h3>
-																	<p>+1 (877) 204-7543 ext*100</p>
-																</li>
-															</ul>
-														</section>
-													</div>
-													<div class="col-12">
-							
-														<!-- Copyright -->
-															<div id="copyright">
-																<ul class="links">
-																	<li>&copy; SmartLegalGroup.inc All rights reserved.</li><li>Design: <a href="#">EMT</a></li>
-																</ul>
-															</div>
-							
-													</div>
-												</div>
-											</div>
-										</section>		
-				
-
-										
-		</div>
-
-		<!-- Scripts -->
-			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
-			<script src="{% static 'assets/js/browser.min.js' %}"></script>
-			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
-			<script src="{% static 'assets/js/util.js' %}"></script>
-			<script src="{% static 'assets/js/main.js' %}"></script>
-
-		
-
-	</body>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
 </html>

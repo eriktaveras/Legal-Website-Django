@@ -1,32 +1,30 @@
 from django.db import models
-from PIL import Image
 from ckeditor.fields import RichTextField
-# Create your models here.
 
-class AboutUs(models.Model):
-    title = models.CharField(max_length=50)
-    content = RichTextField(default='') 
-    img = models.ImageField(upload_to='img')
-
-class Services(models.Model):
+class BaseModel(models.Model):
     title = models.CharField(max_length=200)
-    description = RichTextField(max_length=300)
-    content = RichTextField(default=" ")
+    description = RichTextField(blank=True, max_length=500, default="")
+    content = RichTextField(blank=True, default="")
     img = models.ImageField(upload_to='img')
 
-class CreditRepair(models.Model):
-    title = models.CharField(max_length=200)
-    description = RichTextField(max_length=300)
-    content = RichTextField(default=" ")
-    img = models.ImageField(upload_to='img')
+    class Meta:
+        abstract = True 
 
-
-class ConsumerLaw(models.Model):
-    title = models.CharField(max_length=200)
-    description = RichTextField(max_length=300)
-    content = RichTextField(default=" ")
-    img = models.ImageField(upload_to='img')
-
-
-def __str__(self):
+    def __str__(self):
         return self.title
+
+class AboutUs(BaseModel):
+    class Meta:
+        verbose_name_plural = "About Us"
+
+class Services(BaseModel):
+    class Meta:
+        verbose_name_plural = "Services"
+
+class CreditRepair(BaseModel):
+    class Meta:
+        verbose_name_plural = "Credit Repairs"
+
+class ConsumerLaw(BaseModel):
+    class Meta:
+        verbose_name_plural = "Consumer Laws"
