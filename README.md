@@ -1,6 +1,7 @@
 # Django Web Project
 
-This is a Django-based web project developed by [Your Name] for [Client Name]. The project is designed to provide a website for a law firm specializing in consumer law, credit consulting, and related legal services. This README provides an overview of the project and instructions for setup and usage.
+This is a Django-based web project developed by Erik Taveras. The project is designed to provide a website for a law firm specializing in consumer law, credit consulting, and related legal services. This README provides an overview of the project and instructions for setup and usage.
+![934shots_so](https://github.com/eriktaveras/website/assets/10116703/42489c19-0160-4276-8331-81a9f89a8785)
 
 ## Table of Contents
 
@@ -11,6 +12,7 @@ This is a Django-based web project developed by [Your Name] for [Client Name]. T
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+![755shots_so](https://github.com/eriktaveras/website/assets/10116703/a6cbf814-6276-472d-8a97-7085587d528c)
 
 ## Project Overview
 
